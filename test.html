@@ -1,0 +1,135 @@
+<!DOCTYPE html>      
+<html lang="en">      
+<head>      
+    <meta charset="UTF-8">      
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">      
+    <title>Navigator Tourism</title>      
+    <style>      
+        :root {  
+          --primary: #009173;  
+          --background: #f5f5f5;  
+          --button-bg: #333;  
+          --button-text: white;  
+        }  
+
+        .service-menu {  
+          display: grid;  
+          grid-template-columns: repeat(4, 1fr);  
+          gap: 10px;  
+          padding: 8px;  
+          background: white;  
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);  
+          border-radius: 80px;  
+          max-width: 600px;  
+          margin: 0 auto;  
+        }  
+
+        .service-menu button {  
+          padding: 10px;  
+          border: none;  
+          background: var(--button-bg);  
+          color: var(--button-text);  
+          cursor: pointer;  
+          border-radius: 4px;  
+          transition: 0.3s;  
+          font-size: 12px;  
+          display: flex;  
+          align-items: center;  
+          justify-content: center;  
+          gap: 5px;  
+        }  
+
+        .service-menu button:hover { background: var(--primary); }  
+
+        .search-box {      
+            display: none;      
+            background: white;      
+            padding: 15px;      
+            border-radius: 10px;      
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);      
+            max-width: 600px;      
+            margin: 20px auto;      
+            animation: fadeIn 0.3s ease-in-out;      
+        }      
+
+        .search-box.active { display: block; }      
+
+        @keyframes fadeIn {      
+            from { opacity: 0; transform: translateY(10px); }      
+            to { opacity: 1; transform: translateY(0); }      
+        }      
+
+        .search-fields {      
+            display: grid;      
+            grid-template-columns: repeat(2, 1fr);      
+            gap: 15px;      
+            margin-top: 15px;      
+        }      
+
+        .field input, .field select {      
+            width: 100%;      
+            padding: 10px;      
+            border: 1px solid #ccc;      
+            border-radius: 5px;      
+            font-size: 14px;      
+            box-sizing: border-box; /* Ensure padding doesn't affect width */  
+        }      
+
+        .search-btn {      
+            width: 100%;      
+            padding: 10px;      
+            background: var(--button-bg);      
+            color: white;      
+            border: none;      
+            cursor: pointer;      
+            border-radius: 5px;      
+            margin-top: 15px;      
+            transition: 0.3s;      
+        }      
+
+        .search-btn:hover { background: var(--primary); }      
+
+        @media (max-width: 768px) {      
+            .service-menu { grid-template-columns: repeat(2, 1fr); } /* 2 buttons per row on mobile */  
+            .search-fields { grid-template-columns: 1fr; } /* 1 input per row on mobile */  
+        }      
+    </style>      
+</head>      
+<body>      
+    <section class="banner">  
+        <!-- Air Ticket -->  
+        <div id="air-ticket" class="search-box active">  
+            <div class="service-menu">  
+                <button onclick="showService('air-ticket')">✈ Air Ticket</button>  
+                <button onclick="showService('group-ticket')">👥 Group Ticket</button>  
+                <button onclick="showService('tourist-visa')">🛂 Tourist Visa</button>  
+                <button onclick="showService('work-visa')">💼 Work Visa</button>  
+                <button onclick="showService('hotel-booking')">🏨 Hotel Booking</button>  
+                <button onclick="showService('package')">🎁 Package</button>  
+                <button onclick="showService('manpower')">👷 Manpower</button>  
+            </div>  
+            <h2>✈ Air Ticket Booking</h2>  
+            <div class="search-fields">  
+                <div class="field"><input type="text" placeholder="From"></div>  
+                <div class="field"><input type="text" placeholder="To"></div>  
+                <div class="field"><input type="date" placeholder="Journey Date"></div>  
+                <div class="field"><input type="date" placeholder="Return Date"></div>  
+                <div class="field"><select><option>Select Airline</option><option>Emirates</option><option>Qatar Airways</option></select></div>  
+                <div class="field"><select><option>Select Class</option><option>Economy</option><option>Business</option></select></div>  
+                <div class="field"><input type="number" placeholder="Passengers"></div>  
+            </div>  
+            <button class="search-btn">Search</button>  
+        </div>  
+
+        <!-- Other Services (Group Ticket, Tourist Visa, etc.) -->  
+        <!-- Structure is similar to Air Ticket, just change the content -->  
+    </section>  
+
+    <script>      
+        function showService(serviceId) {  
+            document.querySelectorAll('.search-box').forEach(box => box.classList.remove('active'));  
+            document.getElementById(serviceId).classList.add('active');  
+        }  
+    </script>      
+</body>      
+</html>
